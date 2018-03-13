@@ -3,7 +3,12 @@
  */
 package model;
 
+import entities.Cocinero;
+import exceptions.ExceptionRestaurant;
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.PersistenceUnit;
 
 /**
  *
@@ -12,6 +17,18 @@ import javax.ejb.Stateless;
 @Stateless
 public class RestaurantEJB {
 
-    // Add business logic below. (Right-click in editor and choose
-    // "Insert Code > Add Business Method")
+    // Para trabajar con la persistencia JPA
+    @PersistenceUnit EntityManagerFactory emf;
+    
+    public void altaCocinero(Cocinero c) throws ExceptionRestaurant {
+        EntityManager em = emf.createEntityManager();
+        // Comprobamos si ya existe un cocinero 
+        Cocinero aux = em.find(Cocinero.class, c.getNombre());
+        if (aux != null) {
+            em.close();
+            throw new ExceptionRestaurant("Ya existe un cocinero con ese nombre");
+        }
+        em.persist(c);
+        em.close();
+    }
 }

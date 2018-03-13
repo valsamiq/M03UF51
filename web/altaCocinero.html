@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!--
+Formulario alta cocinero
+-->
+<html>
+    <head>
+        <title>Alta Cocinero</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Nuevo Cocinero</h1>
+        <form method="POST" action="NewCocinero">
+            <p>Nombre: <input type="text" name="nombre" required></p>
+            <p>Teléfono: <input type="text" name="telefono" required></p>
+            <p>Sexo: <input type="radio" name="sexo" value="Mujer">Mujer
+                <input type="radio" name="sexo" value="Hombre">Hombre
+            </p>
+            <p>Edad: <input type="number" name="edad" required></p>
+            <p>Experiencia: <input type="number" name="experiencia" required></p>
+            <p>Especialidad:
+                <select name="especialidad" required>
+                    <option>Entrantes</option>
+                    <option>Platos Principales</option>
+                    <option>Postres</option>
+                </select>
+            </p>
+            <p><input type="submit" value="Alta"></p>
+        </form>
+    </body>
+</html>
