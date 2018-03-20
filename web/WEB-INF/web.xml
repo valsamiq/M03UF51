@@ -4,9 +4,17 @@
         <servlet-name>NewCocinero</servlet-name>
         <servlet-class>controller.NewCocinero</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AllCocineros</servlet-name>
+        <servlet-class>controller.AllCocineros</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>NewCocinero</servlet-name>
         <url-pattern>/NewCocinero</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AllCocineros</servlet-name>
+        <url-pattern>/AllCocineros</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -5,6 +5,7 @@ package model;
 
 import entities.Cocinero;
 import exceptions.ExceptionRestaurant;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -30,5 +31,9 @@ public class RestaurantEJB {
         }
         em.persist(c);
         em.close();
+    }
+    
+    public List<Cocinero> listadoCocineros() {
+        return emf.createEntityManager().createNamedQuery("Cocinero.findAll").getResultList();
     }
 }
