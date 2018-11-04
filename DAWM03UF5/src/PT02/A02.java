@@ -19,7 +19,7 @@ import PT02.Rev;
 public class A02 {
     static ArrayList<Trabajo> trabajos = new ArrayList<>();
     static ArrayList<Rep> reps = new ArrayList<>();
-    static ArrayList<Trabajo> revs = new ArrayList<>();
+    static ArrayList<Rev> revs = new ArrayList<>();
     // Main
     //--------------------------------------------------------------------------
     public static void main(String[] args){
@@ -67,7 +67,7 @@ public class A02 {
                     //Finish work
                     break;
                 case 5:
-                    
+                    showTotal();
                     //Show work
                     break;
                 case 6:
@@ -113,13 +113,46 @@ public class A02 {
             }
         }
     }
-    private static void PriceTotal(){
+    private static void showTotal(){
         //Calculation of total amount of money.
-        
+        int id = insInt("Insert a valid Work ID");
+        for(Rev t : revs){
+            if(id==(t.getId())){
+                System.out.println("Type: Revision");
+                System.out.println("ID: "+t.getId());
+                System.out.println("Description: "+t.getDesc());
+                System.out.println("Price: "+t.getPrice());
+                //It has an Override on its class wich calculates for me the price.
+            }
+        }
+        for(Rep t : reps){
+            if(id==(t.getId())){
+                System.out.println("Type: Reparation");
+                System.out.println("ID: "+t.getId());
+                System.out.println("Description: "+t.getDesc());
+                System.out.println("Hours: "+t.getHours());
+                System.out.println("Calculing final price...");
+                double total;
+                int subtotal = (t.getHours()*30) + t.getPrice();
+                System.out.println("What kind of intervention is?");
+                int op2 = insInt("[0]Mechanical/[1]Bodywork");
+                if(op2==0){
+                    total = subtotal*1.1;
+                    System.out.println("Total Price: "+total);
+                }
+                else if(op2==1){
+                    total = subtotal*1.3;
+                    System.out.println("Total Price: "+total);
+                }
+                else{
+                    System.out.println("Outrange option");
+                }
+                double tot = t.getPrice();
+            }
+        }
     }
     private static void chgHrs(Integer id){
         boolean bnd = false;
-        Rep rep = new Rep(0, 0, "", false, 0);
         for(Rep t : reps){
             if(id==(t.getId())){
                 System.out.println("Actual hours: "+t.getHours());
@@ -135,7 +168,6 @@ public class A02 {
     }
     private static void chgPrt(Integer id){
         boolean bnd = false;
-        Rep rep = new Rep(0, 0, "", false, 0);
         for(Rep t : reps){
             if(id==(t.getId())){
                 System.out.println("Actual parts price: "+t.getPrice());
@@ -187,10 +219,12 @@ public class A02 {
         } while (bnd == true);
         return op;
     }
+    //Unused but interessting.
     private static void waitForIt() throws InterruptedException {
         int seconds = 1;
         int miliseconds = seconds * 1000;
         Thread.sleep(miliseconds);
     }
 }
+
 
