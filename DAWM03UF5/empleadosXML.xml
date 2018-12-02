@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_161" class="java.beans.XMLDecoder">
+ <object class="java.util.ArrayList">
+  <void method="add">
+   <object class="PT04.Empleado">
+    <void property="clave">
+     <string>patata</string>
+    </void>
+    <void property="edad">
+     <int>49</int>
+    </void>
+    <void property="nombre">
+     <string>Adolfo</string>
+    </void>
+    <void property="sueldo">
+     <int>2600</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="PT04.Empleado">
+    <void property="clave">
+     <string>patata</string>
+    </void>
+    <void property="edad">
+     <int>52</int>
+    </void>
+    <void property="nombre">
+     <string>Yoseph</string>
+    </void>
+    <void property="sueldo">
+     <int>1300</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="PT04.Empleado">
+    <void property="clave">
+     <string>patata</string>
+    </void>
+    <void property="edad">
+     <int>94</int>
+    </void>
+    <void property="nombre">
+     <string>Mao</string>
+    </void>
+    <void property="sueldo">
+     <int>1600</int>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="PT04.Empleado">
+    <void property="clave">
+     <string>patata</string>
+    </void>
+    <void property="edad">
+     <int>45</int>
+    </void>
+    <void property="nombre">
+     <string>Benito</string>
+    </void>
+    <void property="sueldo">
+     <int>3200</int>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>
